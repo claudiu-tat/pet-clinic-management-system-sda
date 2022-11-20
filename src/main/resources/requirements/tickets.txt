@@ -44,4 +44,4 @@ DONE - PCM_S-15: Add Hibernate model.
 
 DONE - PCM_S-16: Add generic repositories.
 
-PCM_S-17: Create user menu.
+DONE - PCM_S-17: Create user menu.
