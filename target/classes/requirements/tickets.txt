@@ -34,11 +34,11 @@ veterinarian, date, description.
 PCM_S-11: As a user I should be able to updating the description of a consult by providing the pet id and new values
 of description.
 
-PCM_S-12: Create system architecture diagram.
+DONE - PCM_S-12: Create system architecture diagram.
 
-PCM_S-13: Create database diagram.
+DONE - PCM_S-13: Create database diagram.
 
-PCM_S-14: Add Hibernate configuration (pom and utils).
+DONE - PCM_S-14: Add Hibernate configuration (pom and utils).
 
 PCM_S-15: Add Hibernate model.
 
