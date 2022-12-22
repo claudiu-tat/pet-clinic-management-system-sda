@@ -60,6 +60,23 @@ public class VeterinarianController {
         }
     }
 
+    public void deleteVeterinarian() {
+        try {
+            System.out.println("Please insert vet id: ");
+            int vetId = Integer.parseInt(scanner.nextLine());
+
+            veterinarianService.deleteVeterinarian(vetId);
+            System.out.println("Veterinarian deleted!");
+
+        } catch (InvalidParameterException e) {
+            System.out.println(e.getMessage());
+        } catch (EntityNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Internal server error!");
+        }
+    }
+
     public void showAllVets() {
         veterinarianService.getAllVeterinarians().stream().forEach(veterinarian ->
                 System.out.println("Vet with id: " + veterinarian.getId() + ","

@@ -66,6 +66,22 @@ public class VeterinarianServiceImpl implements VeterinarianService{
     }
 
     @Override
+    public void deleteVeterinarian(int vetId) throws InvalidParameterException, EntityNotFoundException {
+        if (vetId < 1) {
+            throw new InvalidParameterException("Provided value for vet id: " + vetId + " is invalid!");
+        }
+
+        Optional<Veterinarian> veterinarianOptional = veterinarianRepository.findById(vetId);
+        if (veterinarianOptional.isEmpty()) {
+            throw new EntityNotFoundException("Vet with id: " + vetId + " is invalid!");
+        }
+
+        Veterinarian veterinarian = veterinarianOptional.get();
+
+        veterinarianRepository.delete(veterinarian);
+    }
+
+    @Override
     public List<Veterinarian> getAllVeterinarians() {
         return veterinarianRepository.findAll();
     }

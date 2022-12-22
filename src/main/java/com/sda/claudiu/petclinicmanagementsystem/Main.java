@@ -38,6 +38,9 @@ public class Main {
                 case UPDATE_VETERINARIAN:
                     veterinarianController.updateVeterinarian();
                     break;
+                case DELETE_VETERINARIAN:
+                    veterinarianController.deleteVeterinarian();
+                    break;
                 case EXIT:
                     System.out.println("Good bye!");
                     break;

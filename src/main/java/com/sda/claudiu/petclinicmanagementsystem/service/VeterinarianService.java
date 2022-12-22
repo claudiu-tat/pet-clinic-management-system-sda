@@ -9,5 +9,6 @@ import java.util.List;
 public interface VeterinarianService {
     void createVeterinarian(String firstName, String lastName, String address, String speciality) throws InvalidParameterException;
     void updateVeterinarian(int vetId, String firstName, String lastName, String address, String speciality) throws InvalidParameterException, EntityNotFoundException;
+    void deleteVeterinarian(int vetId) throws InvalidParameterException, EntityNotFoundException;
     List<Veterinarian> getAllVeterinarians();
 }
