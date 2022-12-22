@@ -35,6 +35,9 @@ public class Main {
                 case SHOW_ALL_VETERINARIANS:
                     veterinarianController.showAllVets();
                     break;
+                case UPDATE_VETERINARIAN:
+                    veterinarianController.updateVeterinarian();
+                    break;
                 case EXIT:
                     System.out.println("Good bye!");
                     break;

@@ -1,6 +1,7 @@
 package com.sda.claudiu.petclinicmanagementsystem.controller;
 
 import com.sda.claudiu.petclinicmanagementsystem.service.VeterinarianService;
+import com.sda.claudiu.petclinicmanagementsystem.service.exceptions.EntityNotFoundException;
 import com.sda.claudiu.petclinicmanagementsystem.service.exceptions.InvalidParameterException;
 
 import java.util.Scanner;
@@ -34,11 +35,37 @@ public class VeterinarianController {
 
     }
 
+    public void updateVeterinarian() {
+        try {
+            System.out.println("Please insert vet id: ");
+            int vetId = Integer.parseInt(scanner.nextLine());
+            System.out.println("Please insert firstname: ");
+            String firstname = scanner.nextLine();
+            System.out.println("Please insert lastname: ");
+            String lastname = scanner.nextLine();
+            System.out.println("Please insert address: ");
+            String address = scanner.nextLine();
+            System.out.println("Please insert speciality: ");
+            String speciality = scanner.nextLine();
+
+            veterinarianService.updateVeterinarian(vetId, firstname, lastname, address, speciality);
+            System.out.println("Veterinarian was updated!");
+
+        } catch (InvalidParameterException e) {
+            System.out.println(e.getMessage());
+        } catch (EntityNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception ex) {
+            System.out.println("Internal server error!");
+        }
+    }
+
     public void showAllVets() {
         veterinarianService.getAllVeterinarians().stream().forEach(veterinarian ->
-                System.out.println("Vet with id: " + veterinarian.getId()
-                        + " firstname: " + veterinarian.getFirstName()
-                        + " lastname: " + veterinarian.getLastName())
+                System.out.println("Vet with id: " + veterinarian.getId() + ","
+                        + " firstname: " + veterinarian.getFirstName() + ","
+                        + " lastname: " + veterinarian.getLastName() + ","
+                        + " speciality: " + veterinarian.getSpeciality() + ".")
         );
     }
 }
