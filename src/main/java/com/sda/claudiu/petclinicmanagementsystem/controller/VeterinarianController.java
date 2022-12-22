@@ -33,4 +33,12 @@ public class VeterinarianController {
         }
 
     }
+
+    public void showAllVets() {
+        veterinarianService.getAllVeterinarians().stream().forEach(veterinarian ->
+                System.out.println("Vet with id: " + veterinarian.getId()
+                        + " firstname: " + veterinarian.getFirstName()
+                        + " lastname: " + veterinarian.getLastName())
+        );
+    }
 }

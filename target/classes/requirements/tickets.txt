@@ -1,5 +1,5 @@
 
-PCM_S-1: As a user I should be able to add a new vet in the system by providing the vet first name, last name
+DONE - PCM_S-1: As a user I should be able to add a new vet in the system by providing the vet first name, last name
 address and speciality. The system should validate all the fields to not be empty or blank.
 
 PCM_S-2: As a user I should be able to view all the vets. Existing vets should be listed on the screen.

@@ -16,16 +16,16 @@ public class VeterinarianServiceImpl implements VeterinarianService{
     @Override
     public void createVeterinarian(String firstName, String lastName, String address, String speciality) throws InvalidParameterException {
         if (firstName == null || firstName.isBlank() || firstName.length() < 3) {
-            throw new InvalidParameterException("The value for first name " + firstName + " is invalid, please try again!");
+            throw new InvalidParameterException("The value for first name: " + firstName + " is invalid, please try again!");
         }
         if (lastName == null || lastName.isBlank() || lastName.length() < 3) {
-            throw new InvalidParameterException("The value for last name " + lastName + " is invalid, please try again!");
+            throw new InvalidParameterException("The value for last name: " + lastName + " is invalid, please try again!");
         }
         if (address == null || address.isBlank() || address.length() < 3) {
-            throw new InvalidParameterException("The value for address " + address + " is invalid, please try again!");
+            throw new InvalidParameterException("The value for address: " + address + " is invalid, please try again!");
         }
         if (speciality == null || speciality.isBlank() || speciality.length() < 3) {
-            throw new InvalidParameterException("The value for speciality " + speciality + " is invalid, please try again!");
+            throw new InvalidParameterException("The value for speciality: " + speciality + " is invalid, please try again!");
         }
 
         veterinarianRepository.create(new Veterinarian(firstName, lastName, address, speciality));
@@ -36,8 +36,8 @@ public class VeterinarianServiceImpl implements VeterinarianService{
 
     }*/
 
-    /*@Override
+    @Override
     public List<Veterinarian> getAllVeterinarians() {
-        return null;
-    }*/
+        return veterinarianRepository.findAll();
+    }
 }

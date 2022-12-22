@@ -4,6 +4,7 @@ import javax.print.DocFlavor;
 
 public enum UserOption {
     CREATE_VETERINARIAN(1, "Create a veterinarian"),
+    SHOW_ALL_VETERINARIANS(2, "Display all veterinarians"),
     EXIT(99, "Exit"),
     UNKNOWN(100, "Unknown option");
 

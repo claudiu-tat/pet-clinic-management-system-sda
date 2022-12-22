@@ -32,6 +32,9 @@ public class Main {
                 case CREATE_VETERINARIAN:
                     veterinarianController.createVeterinarian();
                     break;
+                case SHOW_ALL_VETERINARIANS:
+                    veterinarianController.showAllVets();
+                    break;
                 case EXIT:
                     System.out.println("Good bye!");
                     break;
