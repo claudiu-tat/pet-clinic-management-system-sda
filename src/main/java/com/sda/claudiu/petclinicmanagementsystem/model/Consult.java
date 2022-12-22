@@ -1,20 +1,26 @@
 package com.sda.claudiu.petclinicmanagementsystem.model;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
-
+@Entity
+@Table(name = "consult")
 public class Consult {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
+    @Column(name = "consult_date")
     private Date consultDate;
+    @Column(name = "description")
     private String description;
-    @ManyToOne
-    @JoinColumn(name = "pet_id")
-    private Pet pet;
 
     @ManyToOne
     @JoinColumn(name = "vet_id")
     private Veterinarian veterinarian;
+
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
+    private Pet pet;
 
     public Consult() {}
 

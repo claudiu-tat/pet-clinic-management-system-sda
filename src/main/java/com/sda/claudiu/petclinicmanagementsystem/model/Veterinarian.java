@@ -19,14 +19,15 @@ public class Veterinarian {
     @Column(name = "speciality")
     private String speciality;
 
-    /* not required here
-    @OneToMany(mappedBy = "veterinarian")
+
+    /*@OneToMany(mappedBy = "veterinarian")
     private List<Pet> pets;*/
 
     @OneToMany(mappedBy = "veterinarian")
     private List<Consult> consults;
 
-    public Veterinarian() {}
+    public Veterinarian() {
+    }
 
     public Veterinarian(String firstName, String lastName, String address, String speciality) {
         this.firstName = firstName;
