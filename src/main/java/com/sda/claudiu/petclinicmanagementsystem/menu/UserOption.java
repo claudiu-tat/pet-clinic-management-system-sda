@@ -7,6 +7,7 @@ public enum UserOption {
     SHOW_ALL_VETERINARIANS(2, "Display all veterinarians"),
     UPDATE_VETERINARIAN(3, "Update veterinarian"),
     DELETE_VETERINARIAN(4, "Delete veterinarian"),
+    CREATE_PET(5, "Create a pet"),
     EXIT(99, "Exit"),
     UNKNOWN(100, "Unknown option");
 
