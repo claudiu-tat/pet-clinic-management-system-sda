@@ -51,4 +51,17 @@ public class PetController {
             System.out.println("Internal system error!");
         }
     }
+
+    public void getAllPets() {
+        petService.getAllPets().stream()
+                .forEach(pet ->
+                        System.out.println(
+                                "Pet id: " + pet.getId() + ","
+                                        + " pet race: " + pet.getRace() + ","
+                                        + " birthdate: " + pet.getBirthdate() + ","
+                                        + " vaccinated: " + pet.getVaccinated() + ","
+                                        + " owner name: " + pet.getOwnerName() + ","
+                                        + " vet id: " + pet.getVeterinarian().getId() + "."
+                        ));
+    }
 }

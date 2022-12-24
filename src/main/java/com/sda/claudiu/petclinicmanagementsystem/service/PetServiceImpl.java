@@ -8,6 +8,7 @@ import com.sda.claudiu.petclinicmanagementsystem.service.exceptions.EntityNotFou
 import com.sda.claudiu.petclinicmanagementsystem.service.exceptions.InvalidParameterException;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 public class PetServiceImpl implements PetService {
@@ -44,6 +45,11 @@ public class PetServiceImpl implements PetService {
         Pet pet = new Pet(race, birthdate, isVaccinated, ownerName);
         pet.setVeterinarian(veterinarian);
         petRepository.create(pet);
+    }
+
+    @Override
+    public List<Pet> getAllPets() {
+        return petRepository.findAll();
     }
 }
 

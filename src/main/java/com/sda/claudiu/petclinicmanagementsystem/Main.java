@@ -48,6 +48,9 @@ public class Main {
                 case CREATE_PET:
                     petController.createPet();
                     break;
+                case SHOW_ALL_PETS:
+                    petController.getAllPets();
+                    break;
                 case EXIT:
                     System.out.println("Good bye!");
                     break;
