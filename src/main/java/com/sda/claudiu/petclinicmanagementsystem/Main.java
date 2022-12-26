@@ -51,6 +51,9 @@ public class Main {
                 case SHOW_ALL_PETS:
                     petController.getAllPets();
                     break;
+                case UPDATE_PET:
+                    petController.updatePet();
+                    break;
                 case EXIT:
                     System.out.println("Good bye!");
                     break;

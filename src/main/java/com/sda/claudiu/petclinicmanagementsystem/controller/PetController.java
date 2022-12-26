@@ -26,7 +26,7 @@ public class PetController {
             String race = scanner.nextLine();
 
             System.out.println("Please insert a birthdate: ");
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd-yyyy");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
             String string = scanner.nextLine();
             Date birthdate = simpleDateFormat.parse(string);
 
@@ -44,9 +44,43 @@ public class PetController {
         } catch (EntityNotFoundException e) {
             System.out.println(e.getMessage());
         } catch (NumberFormatException e) {
-            System.out.println("Please insert a numeric value for author id!");
+            System.out.println("Please insert a numeric value for vet id!");
         } catch (ParseException e) {
-            throw new RuntimeException(e);
+            System.out.println("Please insert a valid date format!");
+        } catch (Exception e) {
+            System.out.println("Internal system error!");
+        }
+    }
+
+    public void updatePet() {
+        try {
+            System.out.println("Please insert pet id: ");
+            int petId = Integer.parseInt(scanner.nextLine());
+            System.out.println("Please insert a new race: ");
+            String race = scanner.nextLine();
+
+            System.out.println("Please insert a new birthdate: ");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+            String string = scanner.nextLine();
+            Date birthdate = simpleDateFormat.parse(string);
+
+            System.out.println("Please insert if is vaccinated: ");
+            Boolean isVaccinated = Boolean.valueOf(scanner.nextLine());
+            System.out.println("Please insert a new owner name: ");
+            String ownerName = scanner.nextLine();
+            System.out.println("Please insert a new vet id: ");
+            int vetId = Integer.parseInt(scanner.nextLine());
+
+            petService.updatePet(petId, race, birthdate, isVaccinated, ownerName, vetId);
+            System.out.println("Pet was updated!");
+        } catch (InvalidParameterException e) {
+            System.out.println(e.getMessage());
+        } catch (EntityNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Please insert a numeric value for vet id!");
+        } catch (ParseException e) {
+            System.out.println("Please insert a valid date format!");
         } catch (Exception e) {
             System.out.println("Internal system error!");
         }
