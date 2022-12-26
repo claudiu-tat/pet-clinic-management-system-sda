@@ -25,7 +25,7 @@ empty or blank. In case the veterinarian id doesn't exist in the system, the sys
 
 DONE - PCM_S-8: As a user I should be able to delete an existing pet by providing the id of the pet that should be deleted.
 
-PCM_S-9: As a user I should be able to add a new consult in the system by providing the veterinarian id, pet id,
+DONE - PCM_S-9: As a user I should be able to add a new consult in the system by providing the veterinarian id, pet id,
 date and description. The system should validate all the fields to not be empty or blank.
 
 PCM_S-10: As a user I should be able to view all the consults in a list. Each line should contain the pet name,

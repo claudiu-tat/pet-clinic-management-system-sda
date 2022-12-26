@@ -1,10 +1,13 @@
 package com.sda.claudiu.petclinicmanagementsystem;
 
+import com.sda.claudiu.petclinicmanagementsystem.controller.ConsultController;
 import com.sda.claudiu.petclinicmanagementsystem.controller.PetController;
 import com.sda.claudiu.petclinicmanagementsystem.controller.VeterinarianController;
 import com.sda.claudiu.petclinicmanagementsystem.menu.UserOption;
+import com.sda.claudiu.petclinicmanagementsystem.repository.ConsultRepositoryImpl;
 import com.sda.claudiu.petclinicmanagementsystem.repository.PetRepositoryImpl;
 import com.sda.claudiu.petclinicmanagementsystem.repository.VeterinarianRepositoryImpl;
+import com.sda.claudiu.petclinicmanagementsystem.service.ConsultServiceImpl;
 import com.sda.claudiu.petclinicmanagementsystem.service.PetServiceImpl;
 import com.sda.claudiu.petclinicmanagementsystem.service.VeterinarianServiceImpl;
 import com.sda.claudiu.petclinicmanagementsystem.service.exceptions.InvalidParameterException;
@@ -18,6 +21,7 @@ public class Main {
         SessionManager.getSessionFactory();
         VeterinarianController veterinarianController= new VeterinarianController(new VeterinarianServiceImpl(new VeterinarianRepositoryImpl()));
         PetController petController = new PetController(new PetServiceImpl(new PetRepositoryImpl(), new VeterinarianRepositoryImpl()));
+        ConsultController consultController = new ConsultController(new ConsultServiceImpl(new VeterinarianRepositoryImpl(), new PetRepositoryImpl(), new ConsultRepositoryImpl()));
         Scanner scanner = new Scanner(System.in);
 
         UserOption userOption = UserOption.UNKNOWN;
@@ -56,6 +60,9 @@ public class Main {
                     break;
                 case DELETE_PET:
                     petController.deletePet();
+                    break;
+                case ADD_CONSULT:
+                    consultController.addConsult();
                     break;
                 case EXIT:
                     System.out.println("Good bye!");

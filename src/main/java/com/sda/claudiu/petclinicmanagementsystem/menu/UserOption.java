@@ -11,6 +11,7 @@ public enum UserOption {
     SHOW_ALL_PETS(6, "Display all pets"),
     UPDATE_PET(7, "Update pet"),
     DELETE_PET(8, "Delete pet"),
+    ADD_CONSULT(9, "Add consult"),
     EXIT(99, "Exit"),
     UNKNOWN(100, "Unknown option");
 
