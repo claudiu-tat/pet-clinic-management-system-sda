@@ -9,8 +9,7 @@ import java.util.List;
 
 public interface PetService {
     void createPet(String race, Date birthdate, boolean isVaccinated, String ownerName, int vetId) throws InvalidParameterException, EntityNotFoundException;
-
     void updatePet(int petId, String race, Date birthdate, boolean isVaccinated, String ownerName, int vetId) throws InvalidParameterException, EntityNotFoundException;
-
+    void deletePet(int petId) throws InvalidParameterException, EntityNotFoundException;
     List<Pet> getAllPets();
 }

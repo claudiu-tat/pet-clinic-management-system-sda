@@ -86,6 +86,24 @@ public class PetController {
         }
     }
 
+    public void deletePet() {
+        try {
+            System.out.println("Please insert pet id: ");
+            int petId = Integer.parseInt(scanner.nextLine());
+
+            petService.deletePet(petId);
+            System.out.println("Pet was deleted");
+        } catch (InvalidParameterException e) {
+            System.out.println(e.getMessage());
+        } catch (EntityNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Please insert a numeric value for vet id!");
+        } catch (Exception e) {
+            System.out.println("Internal system error!");
+        }
+    }
+
     public void getAllPets() {
         petService.getAllPets().stream()
                 .forEach(pet ->

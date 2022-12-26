@@ -55,9 +55,6 @@ public class PetServiceImpl implements PetService {
         if (race == null || race.isBlank() || race.length() < 2) {
             throw new InvalidParameterException("Value for race: " + race + " is invalid!");
         }
-        if (birthdate == null || race.isBlank()) {
-            throw new InvalidParameterException("Value for birthdate: " + birthdate + " is invalid!");
-        }
         if (ownerName == null || ownerName.isBlank() || ownerName.length() < 2) {
             throw new InvalidParameterException("Value for owner name: " + ownerName + " is invalid!");
         }
@@ -85,6 +82,20 @@ public class PetServiceImpl implements PetService {
         veterinarian.setId(vetId);                                  // setting a new vet id
 
         petRepository.update(pet);                                  // simply updating the pet and all the fields will be updated
+    }
+
+    @Override
+    public void deletePet(int petId) throws InvalidParameterException, EntityNotFoundException {
+        if (petId < 1) {
+            throw new InvalidParameterException("Value for pet id: " + petId + " is invalid!");
+        }
+
+        Optional<Pet> petOptional = petRepository.findById(petId);
+        if (petOptional.isEmpty()) {
+            throw new EntityNotFoundException("Pet with id: " + petId + " not found!");
+        }
+        Pet pet = petOptional.get();
+        petRepository.delete(pet);
     }
 
     @Override

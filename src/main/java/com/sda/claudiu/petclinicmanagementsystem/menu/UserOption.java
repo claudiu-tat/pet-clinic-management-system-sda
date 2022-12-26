@@ -10,6 +10,7 @@ public enum UserOption {
     CREATE_PET(5, "Create a pet"),
     SHOW_ALL_PETS(6, "Display all pets"),
     UPDATE_PET(7, "Update pet"),
+    DELETE_PET(8, "Delete pet"),
     EXIT(99, "Exit"),
     UNKNOWN(100, "Unknown option");
 
