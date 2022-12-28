@@ -64,6 +64,12 @@ public class Main {
                 case ADD_CONSULT:
                     consultController.addConsult();
                     break;
+                case SHOW_ALL_CONSULTS:
+                    consultController.viewAllConsults();
+                    break;
+                case UPDATE_CONSULT:
+                    consultController.updateConsult();
+                    break;
                 case EXIT:
                     System.out.println("Good bye!");
                     break;

@@ -44,4 +44,34 @@ public class ConsultController {
             System.out.println("Internal system error!");
         }
     }
+
+    public void updateConsult() {
+        try {
+            System.out.println("Please insert a consult id: ");
+            int consultId = Integer.parseInt(scanner.nextLine());
+            System.out.println("Please insert a new description: ");
+            String description = scanner.nextLine();
+
+            consultService.updateConsult(consultId, description);
+            System.out.println("Consult was updated!");
+        } catch (InvalidParameterException e) {
+            System.out.println(e.getMessage());
+        } catch (EntityNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Please insert a numeric value for consult id!");
+        } catch (Exception e) {
+            System.out.println("Internal system error!");
+        }
+    }
+
+    public void viewAllConsults() {
+        consultService.viewAllConsults().stream().forEach(consult ->
+                System.out.println(
+                        "Consult id: " + consult.getId() + ",\n \t \t"
+                                + " pet race: " + consult.getPet() + ",\n \t \t"
+                                + " veterinarian: " + consult.getVeterinarian() + ",\n \t \t"
+                                + " consult date: " + consult.getConsultDate() + ",\n \t \t"
+                                + " description: " + consult.getDescription() + "."));
+    }
 }

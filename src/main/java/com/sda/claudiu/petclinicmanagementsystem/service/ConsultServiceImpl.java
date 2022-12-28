@@ -10,6 +10,7 @@ import com.sda.claudiu.petclinicmanagementsystem.service.exceptions.EntityNotFou
 import com.sda.claudiu.petclinicmanagementsystem.service.exceptions.InvalidParameterException;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 public class ConsultServiceImpl implements ConsultService{
@@ -52,5 +53,28 @@ public class ConsultServiceImpl implements ConsultService{
         consult.setVeterinarian(veterinarian);
 
         consultRepository.create(consult);
+    }
+
+    @Override
+    public void updateConsult(int consultId, String description) throws InvalidParameterException, EntityNotFoundException {
+        if (consultId < 1) {
+            throw new InvalidParameterException("Value for consult id: " + consultId + " is invalid!");
+        }
+        if (description == null || description.isBlank() || description.length() < 10) {
+            throw new InvalidParameterException("Value for description: " + description + " is invalid!");
+        }
+        Optional<Consult> consultOptional = consultRepository.findById(consultId);
+        if (consultOptional.isEmpty()) {
+            throw new EntityNotFoundException("Consult with id: " + consultId + " not found!");
+        }
+
+        Consult consult = consultOptional.get();
+        consult.setDescription(description);
+        consultRepository.update(consult);
+    }
+
+    @Override
+    public List<Consult> viewAllConsults() {
+        return consultRepository.findAll();
     }
 }
